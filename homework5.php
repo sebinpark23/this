@@ -1,12 +1,12 @@
-<form action="homework5.php" method="post">
+<form action="homework5.php" method="GET">
 년(年)을 입력하세요 : <input type="number" name="y" /><br />
 월(月)을 입력하세요 : <input type="number" name="m" /><br />
 <input type="submit" value="확인" />
 </form>
 <?PHP
-if(isset($_POST['y']) && strlen($_POST['y']) > 0 && isset($_POST['m']) && strlen($_POST['m']) > 0) {
-    $m = $_POST["m"];
-    $y = $_POST["y"];
+if(isset($_GET['y']) && strlen($_GET['y']) > 0 && isset($_GET['m']) && strlen($_GET['m']) > 0) {
+    $m = $_GET["m"];
+    $y = $_GET["y"];
     if(checkdate($m,1,$y)) {
         $firstweekday = getDate(mktime(0,0,0,$m,1,$y)); //해당 월 1일의 요일
         $firstweekday = $firstweekday['wday'];
